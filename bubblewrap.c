@@ -55,11 +55,7 @@ static uid_t real_uid;
 static gid_t real_gid;
 static uid_t overflow_uid;
 static gid_t overflow_gid;
-#ifdef ENABLE_SUPPORT_SETUID
 static bool is_privileged; /* See acquire_privs() */
-#else
-#define is_privileged 0
-#endif
 static const char *argv0;
 static const char *host_tty_dev;
 static int proc_fd = -1;
