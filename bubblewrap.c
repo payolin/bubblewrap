@@ -851,7 +851,6 @@ acquire_privs (void)
   /* Are we setuid ? */
   if (real_uid != euid)
     {
-#ifdef ENABLE_SUPPORT_SETUID
       uid_t new_fsuid;
 
       if (euid != 0)
@@ -882,9 +881,6 @@ acquire_privs (void)
 
       /* Keep only the required capabilities for setup */
       set_required_caps ();
-#else
-      die ("setuid use of bubblewrap is not supported in this build");
-#endif
     }
   else if (real_uid != 0 && has_caps ())
     {
